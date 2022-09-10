@@ -19,8 +19,11 @@ export const LeftHandComponent = () => {
 
     const modalContent = (newEntry) => {
         return newEntry ? (
-                <div>
+                <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center'}}>
                     <p>{newEntry.CREATED_AT}</p>
+                    <p>{newEntry.EntryOne}</p>
+                    <p>{newEntry.EntryTwo}</p>
+                    <p>{newEntry.EntryThree}</p>
                 </div>
             ) :
             " "
