@@ -37,7 +37,7 @@ function Modal({children}) {
                 <ModalBackground>
                     <ModalBody onClick={(e) => e.stopPropagation()}>
                         {children}
-                        <button className="cursor-pointer w-3/4 mx-auto text-white shadow-btn mt-[16px]" onClick={() => setShouldShow(false)}>
+                        <button style={{width: '10%', margin: '0 auto'}} className="cursor-pointer w-3/4 mx-auto text-white shadow-btn mt-[16px]" onClick={() => setShouldShow(false)}>
                             Close
                         </button>
                     </ModalBody>
