@@ -1,5 +1,7 @@
 import React from "react";
 import {useRef} from "react";
+import {MdOutlineAddCircle} from "react-icons/md";
+import {BsFillTrashFill} from "react-icons/bs";
 
 export const RightHandComponent = () => {
     const textAreaContent = useRef(null);
@@ -23,6 +25,12 @@ export const RightHandComponent = () => {
 
     };
 
+    const resetValues = () => {
+        textAreaContent.current.value = '';
+        textAreaContent2.current.value = '';
+        textAreaContent3.current.value = '';
+    }
+
     return <div style={{
         display: 'flex',
         flexDirection: 'column',
@@ -32,7 +40,12 @@ export const RightHandComponent = () => {
         marginTop: '5%',
         marginLeft: '2%'
     }}>
-        <p>{date}</p>
+        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}><p>{date}</p>
+            <div><MdOutlineAddCircle onClick={handleClick} style={{color: 'green'}}/> <BsFillTrashFill
+                onClick={resetValues}
+                style={{color: 'red'}}/>
+            </div>
+        </div>
         <label htmlFor="message">What does your normal day looks like</label>
         <textarea ref={textAreaContent} id="message" name="message"/>
         <br/>
@@ -41,7 +54,5 @@ export const RightHandComponent = () => {
         <br/>
         <label htmlFor="message3">What are you planning today?</label>
         <textarea ref={textAreaContent3} id="message3" name="message"/>
-
-        <button onClick={handleClick}>Click</button>
     </div>
 }
