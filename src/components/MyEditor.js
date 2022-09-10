@@ -14,7 +14,7 @@ export const MyEditor = () => {
     useEffect(() => {
         setTextAreaContent(draftToMarkdown(convertToRaw(editorState.getCurrentContent())))
         console.log(textAreaContent)
-    }, [editorState]);
+    }, [editorState, textAreaContent]);
     return (
         <div>
             <div style={{ border: "1px solid black", padding: '2px', minHeight: '15rem', width: '50%' }}>
