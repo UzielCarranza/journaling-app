@@ -8,9 +8,9 @@ export class RightHandComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            firstEntry: "",
-            secondEntry: "",
-            thirdEntry: "",
+            firstAnswer: "",
+            secondAnswer: "",
+            thirdAnswer: "",
             CREATED_AT: ""
         }
     }
@@ -19,16 +19,16 @@ export class RightHandComponent extends React.Component {
         let today = new Date();
         let time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
         let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-        this.state.firstEntry = value;
+        this.state.firstAnswer = value;
         this.state.CREATED_AT = time + " " + date;
     }
     callback2 = (value) => {
 
-        this.state.secondEntry = value;
+        this.state.secondAnswer = value;
     }
     callback3 = (value) => {
 
-        this.state.thirdEntry = value;
+        this.state.thirdAnswer = value;
     }
     handleSubmit = () => {
 
