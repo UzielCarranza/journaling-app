@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import {useState} from "react";
+import {MdMore} from "react-icons/md";
+import {FaWindowClose} from "react-icons/fa";
 
 const ModalBackground = styled.div`
 position: fixed;
@@ -29,17 +31,13 @@ function Modal({children}) {
     return (
         <>
             <div className="flex justify-center">
-                <button className="text-white shadow-btn w-24 mt-4 cursor-pointer" onClick={() => setShouldShow(true)}>
-                    More Details
-                </button>
+                <MdMore className="text-white shadow-btn w-24 mt-4 cursor-pointer" onClick={() => setShouldShow(true)}/>
             </div>
             {shouldShow && (
                 <ModalBackground>
                     <ModalBody onClick={(e) => e.stopPropagation()}>
+                        <FaWindowClose style={{ fontSize:'20', width: '30%', color: 'red', justifySelf: 'start', display: 'flex', alignSelf: 'end'}} onClick={() => setShouldShow(false)}/>
                         {children}
-                        <button style={{width: '10%', margin: '0 auto'}} className="cursor-pointer w-3/4 mx-auto text-white shadow-btn mt-[16px]" onClick={() => setShouldShow(false)}>
-                            Close
-                        </button>
                     </ModalBody>
                 </ModalBackground>
             )}
