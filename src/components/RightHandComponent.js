@@ -41,7 +41,7 @@ export const RightHandComponent = () => {
         marginLeft: '2%'
     }}>
         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}><p>{date}</p>
-            <div><MdOutlineAddCircle onClick={handleClick} style={{color: 'green'}}/> <BsFillTrashFill
+            <div> <MdOutlineAddCircle  onClick={handleClick} style={{color: 'green'}}/> <BsFillTrashFill
                 onClick={resetValues}
                 style={{color: 'red'}}/>
             </div>
