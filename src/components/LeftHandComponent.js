@@ -1,4 +1,5 @@
 import Modal from "../utils/Modal";
+import React from "react";
 
 export const LeftHandComponent = () => {
     const newEntry = [
@@ -21,8 +22,14 @@ export const LeftHandComponent = () => {
         return newEntry ? (
                 <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center'}}>
                     <p>{newEntry.CREATED_AT}</p>
+
+                    <p>What kind of day are you having?</p>
                     <p>{newEntry.EntryOne}</p>
+
+                    <p>What are your biggest goals right now</p>
                     <p>{newEntry.EntryTwo}</p>
+
+                    <p>What are you worried about?</p>
                     <p>{newEntry.EntryThree}</p>
                 </div>
             ) :
