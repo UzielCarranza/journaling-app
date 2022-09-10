@@ -6,21 +6,22 @@ import {MyEditor} from "./MyEditor";
 export class RightHandComponent extends React.Component {
 
     constructor(props) {
+
+        let today = new Date();
+        let time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+        let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         super(props);
         this.state = {
             firstAnswer: "",
             secondAnswer: "",
             thirdAnswer: "",
-            CREATED_AT: ""
+            CREATED_AT: time + " " + date,
+            date_created: date,
         }
     }
 
     callback = (value) => {
-        let today = new Date();
-        let time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-        let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         this.state.firstAnswer = value;
-        this.state.CREATED_AT = time + " " + date;
     }
     callback2 = (value) => {
 
@@ -46,10 +47,12 @@ export class RightHandComponent extends React.Component {
             marginLeft: '2%'
         }}>
             <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'end', width: '60%'}}>
-                <MdOutlineAddCircle className="add" style={{color: 'green', fontSize: '30'}} onClick={this.handleSubmit}/>
+                <MdOutlineAddCircle className="add" style={{color: 'green', fontSize: '30'}}
+                                    onClick={this.handleSubmit}/>
                 <BsFillTrashFill className="delete" style={{color: 'red', marginLeft: '5%', fontSize: '30'}}/>
 
             </div>
+            <h4>{this.state.date_created}</h4>
             <p>What kind of day are you having?</p>
             <MyEditor parentCallBack={this.callback}/>
 

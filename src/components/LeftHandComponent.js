@@ -8,13 +8,13 @@ export const LeftHandComponent = () => {
             "EntryOne": "I was feeling optimistic",
             "EntryTwo": "Finish strong",
             "EntryThree": "Space and other things",
-            "CREATED_AT": "2022-9-1010:35:30"
+            "CREATED_AT": "2022-9-10 10:35:30"
         }, {
             "id": '2',
             "EntryOne": "I was feeling optimistic",
             "EntryTwo": "Finish strong",
             "EntryThree": "Space and other things",
-            "CREATED_AT": "2022-7-1010:35:30"
+            "CREATED_AT": "2022-7-10 10:35:30"
         }
     ]
 
