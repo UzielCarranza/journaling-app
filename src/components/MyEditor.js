@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { EditorState } from "draft-js";
+import React, {useEffect, useState} from "react";
+import {EditorState} from "draft-js";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import { convertToRaw } from 'draft-js';
-import { Editor } from 'react-draft-wysiwyg';
+import {convertToRaw} from 'draft-js';
+import {Editor} from 'react-draft-wysiwyg';
 import draftToMarkdown from 'draftjs-to-markdown';
+import {BsFillTrashFill} from "react-icons/bs";
 
 export const MyEditor = ({parentCallBack}) => {
+
     const [editorState, setEditorState] = useState(() =>
         EditorState.createEmpty()
     );
@@ -19,11 +21,14 @@ export const MyEditor = ({parentCallBack}) => {
     }, [editorState]);
     return (
         <div>
-            <div style={{ border: "1px solid black", padding: '2px', height: 'auto', width: '60%'}}>
+            <div style={{border: "1px solid black", padding: '2px', height: 'auto', width: '60%'}}>
                 <Editor
                     editorState={editorState}
                     onEditorStateChange={setEditorState}
                 />
+                <BsFillTrashFill className="delete" style={{color: 'red', marginLeft: '95%', fontSize: '20', alignSelf: 'end'}}
+                                 onClick={() => setEditorState(EditorState.createEmpty())}/>
+
             </div>
         </div>
     );

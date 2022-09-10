@@ -46,11 +46,9 @@ export class RightHandComponent extends React.Component {
             height: '100%',
             marginLeft: '2%'
         }}>
-            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'end', width: '60%'}}>
+            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'end', width: '61%'}}>
                 <MdOutlineAddCircle className="add" style={{color: 'green', fontSize: '30'}}
                                     onClick={this.handleSubmit}/>
-                <BsFillTrashFill className="delete" style={{color: 'red', marginLeft: '5%', fontSize: '30'}}/>
-
             </div>
             <h4>{this.state.date_created}</h4>
             <p>What kind of day are you having?</p>
