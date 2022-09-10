@@ -3,7 +3,7 @@ import styled from 'styled-components'
 //main container
 const Container = styled.div`
 width: 100%;
-height: 100vh;
+height: 100%;
 margin-top: 0;
 padding-top: 0;
 display: flex;
@@ -13,7 +13,7 @@ flex-direction: row;
 
 //divides the main conatainer into sections
 const Pane = styled.div`
-margin-top: 0;
+margin-top: 2%;
 flex: ${props => props.weight}
 `
 
@@ -25,9 +25,9 @@ export const SplitScreen = ({children,}) => {
     //returns main container along with 2 sections dividers
     return (
         <Container>
-            <Pane weight={1}>{left}</Pane>
+            <Pane weight={2}>{left}</Pane>
 
-            <Pane weight={2}>{right}</Pane>
+            <Pane weight={3}>{right}</Pane>
         </Container>
     )
 }
