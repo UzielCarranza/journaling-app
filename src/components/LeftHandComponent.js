@@ -44,8 +44,7 @@ export const LeftHandComponent = () => {
                     <div key={newEntry[i].id}>
                         <p className="text-xs italic text-right">{newEntry[i].CREATED_AT}</p>
 
-                        <Modal>
-                            {modalContent(newEntry[i])}</Modal>
+                        <Modal>{modalContent(newEntry[i])}</Modal>
                     </div>
 
                 ))
