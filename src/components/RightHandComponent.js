@@ -1,12 +1,9 @@
 import React from "react";
 import {MdOutlineAddCircle} from "react-icons/md";
-import {BsFillTrashFill} from "react-icons/bs";
 import {MyEditor} from "./MyEditor";
 
 export class RightHandComponent extends React.Component {
-
     constructor(props) {
-
         let today = new Date();
         let time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
         let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -17,6 +14,9 @@ export class RightHandComponent extends React.Component {
             thirdAnswer: "",
             CREATED_AT: time + " " + date,
             date_created: date,
+        }
+        this.store = {
+            id: "1"
         }
     }
 
@@ -37,8 +37,8 @@ export class RightHandComponent extends React.Component {
         console.log(this.state)
     }
 
-    render() {
-        return <div style={{
+     render() {
+        return this.state.firstAnswer === "" ? (<div style={{
             display: 'flex',
             flexDirection: 'column',
             width: '100%',
@@ -52,14 +52,23 @@ export class RightHandComponent extends React.Component {
             </div>
             <h4>{this.state.date_created}</h4>
             <p>What kind of day are you having?</p>
-            <MyEditor parentCallBack={this.callback}/>
+
+            {this.store.id !== undefined ?
+                <MyEditor parentCallBack={this.callback} editingValue={this.store.EntryOne}/> :
+                <MyEditor parentCallBack={this.callback}/>}
+
 
             <p>What are your biggest goals right now</p>
-            <MyEditor parentCallBack={this.callback2}/>
+
+            {this.store.id !== undefined ?
+                <MyEditor parentCallBack={this.callback2} editingValue={this.store.EntryTwo}/> :
+                <MyEditor parentCallBack={this.callback2}/>}
 
             <p>What are you worried about?</p>
-            <MyEditor parentCallBack={this.callback3}/>
-        </div>
+            {this.store.id !== undefined ?
+                <MyEditor parentCallBack={this.callback3} editingValue={this.store.EntryThree}/> :
+                <MyEditor parentCallBack={this.callback3}/>}
+        </div>) : ""
 
     }
 }
