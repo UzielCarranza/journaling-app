@@ -29,27 +29,26 @@ justify-content: space-between;
 
 function Modal({children}) {
     const [shouldShow, setShouldShow] = useState(false);
-    const editEntry = () => {
+
+    const editEntry = (entry) => {
+        console.log(entry.props, " h")
         let today = new Date();
         let time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
         let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         return {
             type: 'editEntry',
-            "id": children.props.children[0].props.children,
-            "EntryOne": children.props.children[3].props.value,
-            "EntryTwo": children.props.children[5].props.value,
-            "EntryThree": children.props.children[7].props.value,
-            "CREATED_AT": children.props.children[1].props.children,
+            "EntryOne": entry.props.children[3].props.children,
+            "EntryTwo": entry.props.children[5].props.children,
+            "EntryThree": entry.props.children[6].props.value,
+            "CREATED_AT": entry.props.children[0].props.children,
             "EDITED_AT": time + " " + date
         }
     }
 
-    const handleEdit = () => {
+    const handleEdit = (entry) => {
         setShouldShow(false);
-        store.dispatch(editEntry())
-
-        //we can call getState() to retrieve the updated value
-        // console.log(store.getState())
+        store.dispatch(editEntry(entry))
+        console.log(store.getState())
     }
 
     return (
@@ -63,7 +62,7 @@ function Modal({children}) {
                         <FaWindowClose style={{ fontSize:'20', width: '30%', color: 'red', justifySelf: 'start', display: 'flex', alignSelf: 'end'}} onClick={() => setShouldShow(false)}/>
                         <MdOutlineModeEditOutline
                             style={{ fontSize:'20', width: '30%', color: 'brown', justifySelf: 'start', display: 'flex', alignSelf: 'end'}}
-                            onClick={handleEdit}/>
+                            onClick={() => handleEdit(children)}/>
                         {children}
                     </ModalBody>
                 </ModalBackground>
