@@ -20,7 +20,7 @@ function userReducer(state = {
             "EntryOne": action.EntryOne,
             "EntryTwo": action.EntryTwo,
             "EntryThree": action.EntryThree,
-            "CREATED_AT": "",
+            "CREATED_AT": action.CREATED_AT,
             "EDITED_AT": action.EDITED_AT
         }
     }
