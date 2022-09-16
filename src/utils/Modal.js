@@ -3,7 +3,7 @@ import {useState} from "react";
 import {MdMore, MdOutlineModeEditOutline} from "react-icons/md";
 import {FaWindowClose} from "react-icons/fa";
 import {store} from "../globallVariable/store";
-import {storeUpdate} from "../components/RightHandComponent";
+import '../App.css';
 
 const ModalBackground = styled.div`
 position: fixed;
@@ -47,8 +47,7 @@ function Modal({children}) {
 
     const handleEdit = (entry) => {
         setShouldShow(false);
-        store.dispatch(editEntry(entry))
-        console.log(store.getState())
+        store.dispatch(editEntry(entry));
     }
 
     return (
@@ -59,9 +58,10 @@ function Modal({children}) {
             {shouldShow && (
                 <ModalBackground>
                     <ModalBody onClick={(e) => e.stopPropagation()}>
-                        <FaWindowClose style={{ fontSize:'20', width: '30%', color: 'red', justifySelf: 'start', display: 'flex', alignSelf: 'end'}} onClick={() => setShouldShow(false)}/>
+                        <FaWindowClose className="hover_pointer" style={{ fontSize:'20', width: '30%', color: 'red', justifySelf: 'start', display: 'flex', alignSelf: 'end'}} onClick={() => setShouldShow(false)}/>
                         <MdOutlineModeEditOutline
-                            style={{ fontSize:'20', width: '30%', color: 'brown', justifySelf: 'start', display: 'flex', alignSelf: 'end'}}
+                            style={{ fontSize:'20', width: '30%', color: '#fff', justifySelf: 'start', display: 'flex', alignSelf: 'end', marginTop: 4}}
+                            className="hover_pointer"
                             onClick={() => handleEdit(children)}/>
                         {children}
                     </ModalBody>
