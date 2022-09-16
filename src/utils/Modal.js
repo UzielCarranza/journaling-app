@@ -17,21 +17,21 @@ background-color: rgb(0,0,0,0.5);
 `;
 
 const ModalBody = styled.div`
-background-color: rgba(220,220,220);
+background-color: #003249;
 margin: 10% auto;
 padding: 20px;
-width: 90%;
+width: 50%;
 height: auto;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
+color: #fff
 `;
 
 function Modal({children}) {
     const [shouldShow, setShouldShow] = useState(false);
 
     const editEntry = (entry) => {
-        console.log(entry.props, " h")
         let today = new Date();
         let time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
         let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
